@@ -1,0 +1,72 @@
+/* highfield-park.css — Highfield Park, the 1017's east-side district.
+   Blocks 1–100 on a 10 x 10 grid, numbered exactly as places.js:
+   Block 1 is the SOUTH-WEST corner, numbers run EAST first, then
+   step NORTH row by row, Block 100 is the NORTH-EAST corner.
+   Highfield Park Drive cuts across the middle seam, between the
+   41–50 row and the 51–60 row. */
+
+.highfield-park {
+  --street: #2e2e33;   /* the gaps between blocks read as streets */
+  --lot: #8a8378;      /* worn concrete lots */
+  --lot-dark: #776f61; /* the older, rougher blocks */
+  background: var(--street);
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 6px;
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.highfield-park .district-name {
+  grid-column: 1 / -1;
+  color: #f2ead8;
+  text-align: center;
+  letter-spacing: 0.35em;
+  font-weight: bold;
+  padding: 6px 0 2px;
+}
+
+.highfield-park .district-name small {
+  display: block;
+  letter-spacing: 0.2em;
+  opacity: 0.65;
+  font-weight: normal;
+  margin-top: 4px;
+}
+
+.highfield-park .block {
+  background: var(--lot);
+  aspect-ratio: 1;
+  position: relative;
+  border-radius: 2px;
+}
+
+/* every third block sits a shade darker — the worn-in rows */
+.highfield-park .block:nth-of-type(3n) {
+  background: var(--lot-dark);
+}
+
+/* the block number lives in its corner, like paint on the curb */
+.highfield-park .block::after {
+  content: attr(data-block);
+  position: absolute;
+  right: 4px;
+  bottom: 2px;
+  font-size: 11px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+/* the Drive: one asphalt band, full width, dashed centre lines */
+.highfield-park .drive {
+  grid-column: 1 / -1;
+  background: #1d1d20;
+  color: #d8d2c2;
+  text-align: center;
+  letter-spacing: 0.45em;
+  font-size: 12px;
+  padding: 9px 0;
+  border-top: 2px dashed rgba(240, 230, 200, 0.5);
+  border-bottom: 2px dashed rgba(240, 230, 200, 0.5);
+}
