@@ -1,0 +1,11 @@
+-- OLD
+Config.Cities = {
+    atlanta = { id='atlanta', label='ATL 1017', ... },
+    chicago = { id='chicago', label='CHI 312',  ... },
+}
+
+-- NEW
+Config.Cities = {
+    southgate = { id='southgate', label='SOUTHGATE', ... },
+    northport  = { id='northport',  label='NORTHPORT',  ... },
+}
